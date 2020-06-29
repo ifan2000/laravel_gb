@@ -17,7 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Route::get('/start.html', function () {
+    $name = request()->has('name') ? request()->get('name') : null;
+    if(is_null($name)){
+        return "Укаажите имя";
+    }
+    return "Hello, " . $name ;
+});
+
+Route::get('/start1.html', function () {
     $name = request()->has('name') ? request()->get('name') : null;
     if(is_null($name)){
         return "Укаажите имя";
